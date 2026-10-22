@@ -5,6 +5,7 @@ sources:
   - https://code.claude.com/docs/en/skills.md
 verified: 2026-10-21
 claude_code: 2.1.303
+status: proven
 ---
 
 # Several repositories in one session
@@ -34,6 +35,11 @@ set in `settings.json` under `env`. **(verified)**
 - A skill that writes to another repo should list that repo's `CLAUDE.md`, and
   anything it `@`-imports, as its first input. That is advisory, but it is the
   only way the other repo's rules reach a session started elsewhere.
+- **Check each repo's branch before branching for a cross-repo change.** In one
+  session, one of four sibling repos was on an unrelated feature branch, and
+  `git switch -c fix/x` there would have stacked the fix on it. Fetch, then
+  branch every repo from the remote default explicitly:
+  `git switch -c fix/x origin/main`. **(practice; the stray branch was observed)**
 - For one declarative entry point, use a root repo with the others cloned inside
   it and listed in its `.gitignore`. It costs a migration of everyone's paths.
 - Plugins (a marketplace plus `enabledPlugins` in each repo's settings) can ship

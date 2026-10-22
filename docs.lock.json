@@ -20,6 +20,12 @@
     },
     "https://code.claude.com/docs/en/cli-reference.md": {
       "sha256": "ac829f14528ebcb3b44364c2d27a134cf40bbb9bf26a1e9968d5c9cf1dc8314d"
+    },
+    "https://raw.githubusercontent.com/OWASP/CheatSheetSeries/master/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.md": {
+      "sha256": "89a87873fdbffff300042e8746339ce3511259e6348f84cc8565d755052f7f12"
+    },
+    "https://raw.githubusercontent.com/mdn/content/main/files/en-us/web/http/reference/headers/set-cookie/index.md": {
+      "sha256": "eb6d8f2ec0be81745c75f4d0fa0a768ffb989b9d30aecf14c0c007c5a0b1f58a"
     }
   }
 }

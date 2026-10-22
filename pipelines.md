@@ -2,6 +2,7 @@
 sources: []
 verified: 2026-10-21
 claude_code: 2.1.303
+status: candidate
 ---
 
 # Multi-agent pipelines

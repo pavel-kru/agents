@@ -5,6 +5,7 @@ sources:
   - https://code.claude.com/docs/en/settings.md
 verified: 2026-10-22
 claude_code: 2.1.303
+status: proven
 ---
 
 # Sharing knowledge across sessions, projects and machines
@@ -22,8 +23,11 @@ claude_code: 2.1.303
 
 For "how to work with my patterns repo, from anywhere", use a **user skill**:
 it reaches every session for the price of one description. **(opinion)** It is
-installed here as `~/.claude/skills/agent-patterns`. **(verified: listed in the
-transcript of a session started in an unrelated directory)**
+installed here as `~/.claude/skills/patterns`, with one skill per domain next to
+it (`patterns-claude-code`, `patterns-security`), so each domain gets its own
+description and its own 1,536-character listing cap. **(docs: the cap; verified:
+all three listed in the transcript of a session started in an unrelated
+directory)**
 
 ## Write the description for the reader who won't open the skill
 

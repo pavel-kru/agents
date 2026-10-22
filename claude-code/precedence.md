@@ -4,6 +4,7 @@ sources:
   - https://code.claude.com/docs/en/best-practices.md
 verified: 2026-10-21
 claude_code: 2.1.303
+status: candidate
 ---
 
 # When instructions disagree

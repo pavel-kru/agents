@@ -1,7 +1,8 @@
-# agents — patterns for working with coding agents
+# patterns — reusable engineering patterns
 
-Reusable patterns, templates and scripts for Claude Code agents, taken from real
-projects. **Patterns only**: no project or company names, hosts, people, account
+Reusable patterns, templates and scripts taken from real projects, one folder per
+domain: Claude Code agents (`claude-code/` and the root files), security
+(`security/`). **Patterns only**: no project or company names, hosts, people, account
 ids or internal paths. Say "the front-end repo" or "the generated contract", not
 a real repo name.
 
@@ -9,7 +10,7 @@ a real repo name.
 
 ## Keeping the patterns current
 
-Claude Code changes often, so every pattern records where it came from and what
+Docs and tools change often, so every pattern records where it came from and what
 it was checked against:
 
 ```yaml
@@ -18,8 +19,16 @@ sources:            # official docs pages the pattern relies on (.md URLs)
   - https://code.claude.com/docs/en/memory.md
 verified: 2026-10-21  # date of the last check
 claude_code: 2.1.303  # Claude Code version it was checked on
+status: proven      # or candidate
 ---
 ```
+
+`claude_code` belongs only in patterns about Claude Code. Leave it out elsewhere:
+`check-docs.mjs` compares the installed version only with patterns that have it.
+
+`status: proven` means the key claims were verified or the pattern was applied in
+real work. `status: candidate` means it was reviewed or reasoned but not yet
+proven. Promote a candidate when it holds up a second time.
 
 At session start a hook runs `scripts/check-docs.mjs`. The script compares every
 cited page with the version it was verified against (`docs.lock.json`), and the
@@ -49,12 +58,17 @@ this session and say so when you rely on one.
 | Stop | `.claude/hooks/check-doc-coverage.sh` | a file listed in `.claude/doc-coverage.json` changed after its doc: update the doc or say why not |
 | Stop | `.claude/hooks/check-sync.sh` | uncommitted or unpushed work: show it and ask the user |
 
-They run only in sessions started here. From anywhere else, the `agent-patterns`
-skill (`skills/`, linked by `install.sh`) carries the same rules as text.
+They run only in sessions started here. From anywhere else, the `patterns` skill
+(`skills/`, linked by `install.sh`) carries the same rules as text.
 
 ## Writing or editing a pattern
 
 - One topic per file, with the front-matter above.
+- One folder per domain, created with its first pattern, never before. A new
+  domain also gets a README section and a `skills/patterns-<domain>/` skill, and
+  the `patterns` skill's description names it. Keep each skill's description
+  short: Claude Code truncates `description` plus `when_to_use` at 1,536
+  characters in the skill listing. **(docs)**
 - Label every claim with its evidence: **(verified: how)**, **(docs)**, or
   **(opinion)**. Something learned from the model's own answer about its context
   is not evidence; see `claude-code/verification.md`.

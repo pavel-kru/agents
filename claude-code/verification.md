@@ -4,6 +4,7 @@ sources:
   - https://code.claude.com/docs/en/memory.md
 verified: 2026-10-21
 claude_code: 2.1.303
+status: proven
 ---
 
 # Proving what an agent loaded or was blocked from

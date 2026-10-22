@@ -1,28 +1,44 @@
-# agents
+# patterns
 
-Patterns for running Claude Code agents on real codebases.
+Reusable engineering patterns from real codebases, one folder per domain. Every
+claim is labelled **(verified)**, **(docs)** or **(opinion)**. `proven`: the key
+claims were verified or the pattern was applied in real work. `candidate`:
+reviewed or reasoned, not yet proven.
 
-| File | What it answers |
+## Claude Code agents
+
+| File | Status | What it answers |
+|---|---|---|
+| `claude-code/loading.md` | proven | Which instruction files reach the model, and when |
+| `claude-code/precedence.md` | candidate | What wins when instructions disagree (nothing built in) and a tie-break template |
+| `claude-code/hooks.md` | proven | Enforcing rules with hooks: what blocks, what slips through, loop guards |
+| `claude-code/multi-repo.md` | proven | Several repos in one session: siblings, `--add-dir`, nested clones, search |
+| `claude-code/verification.md` | proven | Proving what was loaded or enforced, using transcripts instead of the model's word |
+| `claude-code/sharing.md` | proven | Sharing knowledge across sessions, projects and machines: skills, overlays, sync |
+| `instruction-design.md` | candidate | How to lay out CLAUDE.md, topic docs and rules so they stay true |
+| `pipelines.md` | candidate | Multi-agent pipelines: hand-offs, isolation, parallel sessions, gates |
+| `pitfalls.md` | proven | Traps that cost real time, with the fix |
+
+## This repo's tooling
+
+| File | What it does |
 |---|---|
-| `claude-code/loading.md` | Which instruction files reach the model, and when |
-| `claude-code/precedence.md` | What wins when instructions disagree (nothing built in) and a tie-break template |
-| `claude-code/hooks.md` | Enforcing rules with hooks: what blocks, what slips through, loop guards |
-| `claude-code/multi-repo.md` | Several repos in one session: siblings, `--add-dir`, nested clones, search |
-| `claude-code/verification.md` | Proving what was loaded or enforced, using transcripts instead of the model's word |
-| `claude-code/sharing.md` | Sharing knowledge across sessions, projects and machines: skills, overlays, sync |
-| `instruction-design.md` | How to lay out CLAUDE.md, topic docs and rules so they stay true |
-| `pipelines.md` | Multi-agent pipelines: hand-offs, isolation, parallel sessions, gates |
-| `pitfalls.md` | Traps that cost real time, with the fix |
 | `templates/` | CLAUDE.md skeleton (`CLAUDE.template.md`, never named CLAUDE.md here or it would load), hook + settings, a path-scoped rule |
 | `scripts/transcript-inspect.mjs` | What a session actually loaded and did |
 | `scripts/check-docs.mjs` | Session-start check that the cited docs haven't changed |
-| `skills/agent-patterns/` | User skill that tells every session where these patterns live and how to add one |
+| `skills/` | User skills: `patterns` (index, how to add a pattern) and one per domain (`patterns-claude-code`, `patterns-security`) |
 | `install.sh` | Links `skills/*` into `~/.claude/skills` (`--check` to verify only) |
 | `.claude/hooks/` | This repo's own hooks: commit approval, co-author block, doc coverage, sync reminder |
+
+## Security
+
+| File | Status | What it answers |
+|---|---|---|
+| `security/session-bridge.md` | candidate | Handing a legacy server session to an SPA and a new API without tokens in JS, and what a naive version misses |
 
 ## Setup on a machine
 
 ```bash
-git clone https://github.com/pavel-kru/agents.git ~/agents
-~/agents/install.sh && ~/agents/install.sh --check
+git clone https://github.com/pavel-kru/patterns.git ~/patterns
+~/patterns/install.sh && ~/patterns/install.sh --check
 ```

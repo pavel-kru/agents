@@ -5,6 +5,7 @@ sources:
   - https://code.claude.com/docs/en/settings.md
 verified: 2026-10-21
 claude_code: 2.1.303
+status: proven
 ---
 
 # What gets loaded, and when
