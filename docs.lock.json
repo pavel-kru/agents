@@ -21,6 +21,21 @@
     "https://code.claude.com/docs/en/cli-reference.md": {
       "sha256": "ac829f14528ebcb3b44364c2d27a134cf40bbb9bf26a1e9968d5c9cf1dc8314d"
     },
+    "https://raw.githubusercontent.com/feature-sliced/documentation/master/src/content/docs/docs/reference/slices-segments.mdx": {
+      "sha256": "42e4ffcbe338c5f8878f613f266967a969f07bd8246639a4c3fbc4c7440acfaf"
+    },
+    "https://raw.githubusercontent.com/feature-sliced/documentation/master/src/content/docs/docs/reference/public-api.mdx": {
+      "sha256": "3815224d1654a5473ad466260fde92cd3ca6de20806af0999366b051b400e8e3"
+    },
+    "https://raw.githubusercontent.com/javierbrea/eslint-plugin-boundaries/master/packages/website/docs/rules/dependencies.md": {
+      "sha256": "fc1ee18222fa78d2c9e405fc0916dbdfcb0a2ae0d5c6678ae4e2b72357601639"
+    },
+    "https://raw.githubusercontent.com/javierbrea/eslint-plugin-boundaries/master/packages/website/docs/classification/elements.md": {
+      "sha256": "f87f55bce431ad89ebb195edf5890a732ec22699ce7c1c91366088a7fe501276"
+    },
+    "https://raw.githubusercontent.com/javierbrea/eslint-plugin-boundaries/master/packages/website/docs/guides/typescript-support.md": {
+      "sha256": "650efddaba7617a436f34af21d06f343c49d18d36e751bb64594666c1470ce15"
+    },
     "https://raw.githubusercontent.com/OWASP/CheatSheetSeries/master/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.md": {
       "sha256": "89a87873fdbffff300042e8746339ce3511259e6348f84cc8565d755052f7f12"
     },

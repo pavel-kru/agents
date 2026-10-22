@@ -1,6 +1,6 @@
 ---
 name: patterns
-description: Index of the user's engineering patterns in ~/patterns, and how to add one. Domains so far - Claude Code agents (claude-code/, skill patterns-claude-code) and security (security/, skill patterns-security). Use to save something reusable you learned as a new pattern (/patterns add), or to look up a pattern when no domain skill fits.
+description: Index of the user's engineering patterns in ~/patterns, and how to add one. Domains so far - Claude Code agents (claude-code/, skill patterns-claude-code), security (security/, skill patterns-security) and front end (frontend/, skill patterns-frontend). Use to save something reusable you learned as a new pattern (/patterns add), or to look up a pattern when no domain skill fits.
 ---
 
 # Patterns (~/patterns)
