@@ -2,8 +2,8 @@
 
 Reusable patterns, templates and scripts taken from real projects, one folder per
 domain: Claude Code agents (`claude-code/` and the root files), security
-(`security/`). **Patterns only**: no project or company names, hosts, people, account
-ids or internal paths. Say "the front-end repo" or "the generated contract", not
+(`security/`), front end (`frontend/`). **Patterns only**: no project or company
+names, hosts, people, account ids or internal paths. Say "the front-end repo" or "the generated contract", not
 a real repo name.
 
 @README.md

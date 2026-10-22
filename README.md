@@ -26,7 +26,7 @@ reviewed or reasoned, not yet proven.
 | `templates/` | CLAUDE.md skeleton (`CLAUDE.template.md`, never named CLAUDE.md here or it would load), hook + settings, a path-scoped rule |
 | `scripts/transcript-inspect.mjs` | What a session actually loaded and did |
 | `scripts/check-docs.mjs` | Session-start check that the cited docs haven't changed |
-| `skills/` | User skills: `patterns` (index, how to add a pattern) and one per domain (`patterns-claude-code`, `patterns-security`) |
+| `skills/` | User skills: `patterns` (index, how to add a pattern) and one per domain (`patterns-claude-code`, `patterns-security`, `patterns-frontend`) |
 | `install.sh` | Links `skills/*` into `~/.claude/skills` (`--check` to verify only) |
 | `.claude/hooks/` | This repo's own hooks: commit approval, co-author block, doc coverage, sync reminder |
 
@@ -35,6 +35,12 @@ reviewed or reasoned, not yet proven.
 | File | Status | What it answers |
 |---|---|---|
 | `security/session-bridge.md` | candidate | Handing a legacy server session to an SPA and a new API without tokens in JS, and what a naive version misses |
+
+## Front end
+
+| File | Status | What it answers |
+|---|---|---|
+| `frontend/fsd-boundaries.md` | proven | Feature-Sliced Design layer and public-API rules as ESLint errors (eslint-plugin-boundaries), the traps that turn them silently green, and a canary test |
 
 ## Setup on a machine
 

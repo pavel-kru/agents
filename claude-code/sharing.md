@@ -24,10 +24,10 @@ status: proven
 For "how to work with my patterns repo, from anywhere", use a **user skill**:
 it reaches every session for the price of one description. **(opinion)** It is
 installed here as `~/.claude/skills/patterns`, with one skill per domain next to
-it (`patterns-claude-code`, `patterns-security`), so each domain gets its own
-description and its own 1,536-character listing cap. **(docs: the cap; verified:
-all three listed in the transcript of a session started in an unrelated
-directory)**
+it (`patterns-claude-code`, `patterns-security`, `patterns-frontend`), so each
+domain gets its own description and its own 1,536-character listing cap.
+**(docs: the cap; verified: all four listed in the transcript of a session
+started in an unrelated directory)**
 
 ## Write the description for the reader who won't open the skill
 
