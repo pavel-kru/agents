@@ -41,6 +41,12 @@
     },
     "https://raw.githubusercontent.com/mdn/content/main/files/en-us/web/http/reference/headers/set-cookie/index.md": {
       "sha256": "eb6d8f2ec0be81745c75f4d0fa0a768ffb989b9d30aecf14c0c007c5a0b1f58a"
+    },
+    "https://raw.githubusercontent.com/eslint/eslint/main/docs/src/rules/no-restricted-imports.md": {
+      "sha256": "d0e02dfd37ef963943410c2bfe6ed11a76ef6f63248df79508f495609ea9f7a3"
+    },
+    "https://raw.githubusercontent.com/eslint/eslint/main/docs/src/rules/no-restricted-syntax.md": {
+      "sha256": "5b098ffeeb171b43f3c7444eddd8962da8633780d04b1a76e24bd6afa4588fe7"
     }
   }
 }
