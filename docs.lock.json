@@ -1,0 +1,25 @@
+{
+  "pages": {
+    "https://code.claude.com/docs/en/hooks.md": {
+      "sha256": "b646e8f614acecad913b5b6662dd7316542bb0de85bcd9011b5a20ee8b1ee54b"
+    },
+    "https://code.claude.com/docs/en/hooks-guide.md": {
+      "sha256": "b371129f98ba5023d47cd93614154b2c793e5b0de05e79662ecd8950387b604e"
+    },
+    "https://code.claude.com/docs/en/memory.md": {
+      "sha256": "d951a26e6662ef73a97566b7e9bac1d84d477d1a15e0b193148340d05081a88c"
+    },
+    "https://code.claude.com/docs/en/skills.md": {
+      "sha256": "cdfcb0df93072710866de536ba823c06a0804038d488cd27a2ba48ad114cd456"
+    },
+    "https://code.claude.com/docs/en/settings.md": {
+      "sha256": "513768ecae76734930921886d5380201f80541e449ac67e977a6b39e2bbad9f5"
+    },
+    "https://code.claude.com/docs/en/best-practices.md": {
+      "sha256": "e3b99b377961bdd071ec6390904dcb319c9d3d3a8f627230642eeb84ad753d2e"
+    },
+    "https://code.claude.com/docs/en/cli-reference.md": {
+      "sha256": "ac829f14528ebcb3b44364c2d27a134cf40bbb9bf26a1e9968d5c9cf1dc8314d"
+    }
+  }
+}
