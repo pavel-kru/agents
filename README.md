@@ -41,6 +41,7 @@ reviewed or reasoned, not yet proven.
 | File | Status | What it answers |
 |---|---|---|
 | `frontend/fsd-boundaries.md` | proven | Feature-Sliced Design layer and public-API rules as ESLint errors (eslint-plugin-boundaries), the traps that turn them silently green, and a canary test |
+| `frontend/render-only-components.md` | candidate | Keeping state, effects and data access out of slice components with two core ESLint rules, and rolling that out with a shrinking exception list |
 
 ## Setup on a machine
 

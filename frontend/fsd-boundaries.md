@@ -19,7 +19,8 @@ then sees a violation in the editor or the commit hook, not in review.
 It was checked on eslint-plugin-boundaries 7.2.0, ESLint 10.12 (flat config),
 eslint-import-resolver-typescript 4.4.5 and TypeScript 6, in a React front-end
 repo. The checks were a canary test against the real config, imports linted from
-stdin, and a fixture tree. Every **(verified)** claim comes from those runs.
+stdin, and a fixture tree. The rules were then switched on in two more front-end
+repos. Every **(verified)** claim comes from those runs.
 
 ## When to use it, and when not
 
@@ -122,6 +123,34 @@ import { boundariesElements, boundariesPolicies } from './eslint/fsd-boundaries.
 Install `eslint-plugin-boundaries` and `eslint-import-resolver-typescript` as dev
 dependencies. `import.meta.dirname` needs Node 20.11 or later.
 
+### Variant: `shared` segments behind their index
+
+If the code already imports `shared` as `@/shared/api` and never as
+`@/shared/api/<file>`, make each segment an element and require its `index.ts`,
+both from above and from other segments:
+
+```js
+{ type: 'shared', pattern: 'src/shared/*', partialMatch: false, capture: ['segment'] },
+
+// In the downward policy, every lower layer now needs the public API:
+//   to: lowerLayers(layer).map(target => ({ element: { type: target, fileInternalPath: publicApi } })),
+// and inside `shared`:
+{
+  from: { element: { type: 'shared' } },
+  allow: {
+    to: [
+      { element: { type: 'shared', captured: { segment: '{{from.captured.segment}}' } } },
+      { element: { type: 'shared', fileInternalPath: publicApi } },
+    ],
+  },
+},
+```
+
+**(verified: a feature importing `@/shared/api/<file>` fails, and `shared/ui` →
+`@/shared/lib` passes)** Don't use it while deep `shared` imports are common:
+every one of them fails at once, and segments without an `index.ts` need one
+first. **(opinion)**
+
 ## Why it holds
 
 - **It allows a short list and blocks the rest.** With `default: 'disallow'`, any
@@ -168,6 +197,18 @@ dependencies. `import.meta.dirname` needs Node 20.11 or later.
   bundle. **(opinion)** The `mocks.ts` policy above allows it from `app/mocks/**`
   only. **(verified on a fixture, and on the real tree, where `app/mocks` was the
   only importer)**
+- **Expect the first violation in the API client.** In both repos where the rules
+  were switched on, the only error was `shared/api` importing the session entity
+  to read the token and to log out on a failed 401. **(verified)** The fix: let
+  `shared/api` export a setter, such as `configureApiSession({ getAccessToken,
+  clearSession })`, and have `app` call it at module load. **(verified: lint and
+  build pass, and the behaviour is unchanged)** Calling it from a hook's effect
+  instead would let requests fire before the getter is set. **(opinion)**
+- **eslint-plugin-boundaries 7.2.0 pulls in `handlebars` 4.7.9**, which has
+  critical advisories. 7.2.1 bumps it, or you can override `handlebars` to 4.7.10.
+  `braces` (via `micromatch`) still reports a high DoS advisory, and no patched
+  version exists. The plugin only uses these on patterns from your own config.
+  **(verified: `npm audit` on 2026-10-22; the exposure is opinion)**
 
 ## The canary test
 
@@ -233,6 +274,11 @@ describe('fsd boundaries', { timeout: 60_000 }, () => {
   and `boundaries/root-path` set to the fixture. **(verified)**
 - Check that the test runner picks up the file. A runner that only includes
   `src/**` won't run it. **(verified)**
+- No test runner? Write the same cases with `node:test` and `node:assert`, and
+  chain them into the lint script (`eslint . && node --test
+  eslint/fsd-boundaries.test.js`) so they run wherever lint runs. No new
+  dependency is needed. **(verified: 12 of 12 pass, and 8 of 12 fail with the
+  resolver removed)**
 
 ## What lint can't tell you
 
